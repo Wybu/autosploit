@@ -13,11 +13,11 @@ def create_socket():
         
 def create_connection(ip, port):
     try:
-        print(f"[+] Đang kết nối đến {ip}:{port}")
+        print(f"[+] Connect to  {ip}:{port}")
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.connect((ip, port))
         print("[+] Kết nối thành công!")
         return s
     except Exception as e:
-        print(f"[-] Không thể kết nối: {e}")
+        print(f"[-] Unable to connect: {e}")
         return None    

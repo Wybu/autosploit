@@ -1,1 +1,1 @@
-pip install shodan argparse pyyaml
+argparse==1.4.0
