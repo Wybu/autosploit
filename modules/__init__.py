@@ -1,11 +1,12 @@
 import argparse
+from modules.shodan_search import shodan_search
+from modules.scanner import scan
+from modules.msf import run_exploit
+from modules.socket_connection import create_connection
 
-def parse_arguments():
+def initialize_cli_tool():
     """
-    Parse command-line arguments for the penetration testing CLI tool.
-
-    Returns:
-        argparse.Namespace: Parsed arguments.
+    Initialize the CLI tool by parsing arguments and executing the appropriate functionality.
     """
     parser = argparse.ArgumentParser(description="CLI tool for penetration testing")
     parser.add_argument(
@@ -28,4 +29,15 @@ def parse_arguments():
         help="Connect to a remote server",
         action="store_true"
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if args.shodan:
+        shodan_search()
+    elif args.scan:
+        scan()
+    elif args.msf:
+        run_exploit()
+    elif args.connect:
+        create_connection()
+    else:
+        print("No arguments provided. Use -h for help.")

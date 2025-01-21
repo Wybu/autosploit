@@ -1,8 +1,11 @@
 import argparse
+import sys
+import os
 from modules.shodan_search import shodan_search
 from modules.scanner import scan
 from modules.msf import run_exploit
 from modules.socket_connection import create_connection
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath("E:\RepoGithub\autosploit\cli\main.py"))))
 
 def main():
     parser = argparse.ArgumentParser(description="CLI tool for penetration testing")
