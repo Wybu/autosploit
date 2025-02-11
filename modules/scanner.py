@@ -26,16 +26,13 @@ def scan(target, start_port, end_port):
         scan_port(target_ip, port)
 
 def parse_arguments():
-    """
-    Phân tích đối số từ dòng lệnh.
-    """
+   
     parser = argparse.ArgumentParser(description="Port scanner")
     parser.add_argument("target", help="Target domain or IP address to scan")
     parser.add_argument("-s", "--start", type=int, default=1, help="Start port range (default: 1)")
     parser.add_argument("-e", "--end", type=int, default=1024, help="End port range (default: 1024)")
     return parser.parse_args()
 
-# Nếu module này được gọi trực tiếp, hãy quét cổng
 if __name__ == "__main__":
     args = parse_arguments()
     scan(args.target, args.start, args.end)

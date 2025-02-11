@@ -10,7 +10,6 @@ from cli.args_parser import parse_arguments
 
 def main():
     args = parse_arguments()  
-
     if args.shodan:
         shodan_search()
     elif args.scan:
